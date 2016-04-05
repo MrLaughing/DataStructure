@@ -5,26 +5,13 @@ package ren.laughing.datastructure.model;
  * @time 2016年4月5日
  */
 public class Data {
-	private int id;
-	private String name;
-	private int length;
-	public int getId() {
-		return id;
+	private String content;
+
+	public String getContent() {
+		return content;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getLength() {
-		return length;
-	}
-	public void setLength(int length) {
-		this.length = length;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 }

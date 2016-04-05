@@ -16,7 +16,7 @@ public class DefaultStrategy implements Strategy {
 		if(obj1 instanceof Data && obj2 instanceof Data){
 			Data d1 = (Data) obj1;
 			Data d2  = (Data) obj2;
-			if(d1.getLength() == d2.getLength()){
+			if(d1.getContent().equals(d2.getContent())){
 				return true;
 			}else{
 				return false;
@@ -25,20 +25,14 @@ public class DefaultStrategy implements Strategy {
 			return false;
 		}
 	}
-	//若d2的length大于d1的length 则返回1;相等返回0;小于返回-1
+	//返回：d1.getContent().compareTo(d2.getContent());
 	//若obj1|obj2均不属于基本Data.java类型，抛出NotDataException异常
 	@Override
 	public int compare(Object obj1, Object obj2) {
 		if(obj1 instanceof Data && obj2 instanceof Data){
 			Data d1 = (Data) obj1;
 			Data d2  = (Data) obj2;
-			if(d1.getLength() ==d2.getLength()){
-				return 0;
-			}else if(d1.getLength()>d2.getLength()){
-				return 1;
-			}else{
-				return -1;
-			}
+			return d1.getContent().compareTo(d2.getContent());
 		}else{
 			throw new NotDataException("元素类型不为Data.java");
 		}
