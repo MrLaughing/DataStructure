@@ -1,10 +1,18 @@
 package ren.laughing.datastructure.base;
 
-import java.util.Iterator;
 
 import ren.laughing.datastructure.exception.InvalidNodeException;
 import ren.laughing.datastructure.exception.OutOfBoundaryException;
-
+/**
+ * 链接表ADT
+ * 单链表和双链表用顺序存储结构并不友好
+ * 链表方便插入，不方便查找
+ * SLNode和DLNode都实现了Node结点
+ * 因此采用Node结点作为参数、降低算法复杂度
+ * 链接表可以看作是一组结点序列以及基于结点进行操作的线性结构的抽象
+ * @author Laughing_Lz
+ * @time 2016年4月6日
+ */
 public interface LinkedList {
 	//查询链接表当前的规模
 	public int getSize();
