@@ -8,17 +8,17 @@ import ren.laughing.datastructure.exception.OutOfBoundaryException;
  * @author Laughing_Lz
  * @time 2016年4月5日
  */
-public class SLinkList implements List{
+public class SLinkedList implements List{
 	private Strategy strategy;//数据元素比较策略
 	private SLNode head;//单链表首结点引用
 	private int size;//数据元素个数
 	
 	
-	public SLinkList() {
+	public SLinkedList() {
 		this(new DefaultStrategy());
 	}
 
-	public SLinkList(Strategy strategy) {
+	public SLinkedList(Strategy strategy) {
 		this.strategy = strategy;
 		head = new SLNode();
 		size = 0;

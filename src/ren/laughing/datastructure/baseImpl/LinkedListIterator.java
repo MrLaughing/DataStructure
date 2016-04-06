@@ -9,11 +9,11 @@ import ren.laughing.datastructure.exception.OutOfBoundaryException;
  * @author Laughing_Lz
  * @time 2016年4月6日
  */
-public class LinkListIterator implements Iterator{
+public class LinkedListIterator implements Iterator{
 	private LinkedList linkedList;//链接表
 	private Node current;//当前结点
 	
-	public LinkListIterator(LinkedList linkedList) {
+	public LinkedListIterator(LinkedList linkedList) {
 		this.linkedList = linkedList;
 		if(linkedList.isEmpty()){//若当前链表为空
 			current = null;//当前结点置空

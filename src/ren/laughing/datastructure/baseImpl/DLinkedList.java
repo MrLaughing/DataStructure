@@ -10,12 +10,12 @@ import ren.laughing.datastructure.exception.OutOfBoundaryException;
  * @author Laughing_Lz
  * @time 2016年4月6日
  */
-public class DLinkList implements LinkedList{
+public class DLinkedList implements LinkedList{
 	private DLNode head;//头结点
 	private DLNode tail;//尾结点
 	private int size;//规模
 	
-	public DLinkList() {
+	public DLinkedList() {
 		size=0;
 		head = new DLNode();
 		tail = new DLNode();
@@ -155,7 +155,7 @@ public class DLinkList implements LinkedList{
 	//元素迭代器
 	@Override
 	public Iterator elements() {
-		Iterator it = new LinkListIterator(this);
+		Iterator it = new LinkedListIterator(this);
 		return it;
 	}
 
