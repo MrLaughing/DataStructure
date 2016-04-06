@@ -11,7 +11,7 @@ import ren.laughing.datastructure.exception.OutOfBoundaryException;
 public class ArrayList implements List{
 	private final int LEN = 8; //默认数组大小8
 	private Strategy strategy; //数据元素的比较策略
-	private int size; //线性表中数据元素的个数
+	private int size; //线性表中实际数据元素的个数
 	private Object[] elements; //数据元素数组
 	//构造器
 	public ArrayList() {
