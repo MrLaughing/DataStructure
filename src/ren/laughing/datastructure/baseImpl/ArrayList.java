@@ -65,7 +65,7 @@ public class ArrayList implements List{
 		}
 		//若数据元素个数大于数据元素数组长度
 		if (size >= elements.length) {
-			expandSpace();// 扩充数组长度
+			expandSpace();// 扩充数组长度、动态扩展数组空间
 		}
 		for (int j = size; j > i; j--) {
 			elements[j] = elements[j - 1];
