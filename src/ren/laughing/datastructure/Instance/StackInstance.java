@@ -115,10 +115,7 @@ public class StackInstance {
 					count++;
 				} 
 				if(count == 0){
-//					cells[x][y].visited = false;
 					s.pop();//都没有，就要回退，出栈
-					x =((Cell)s.peek()).x;
-					y =((Cell)s.peek()).y;
 				}
 			}else{//如果已经到终点,开始回退打印路线
 				while(!s.isEmpty()){
