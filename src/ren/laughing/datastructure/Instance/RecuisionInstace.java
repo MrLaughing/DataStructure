@@ -1,5 +1,9 @@
 package ren.laughing.datastructure.Instance;
-
+/**
+ * 递归案例
+ * @author Laughing_Lz
+ * @time 2016年4月13日
+ */
 public class RecuisionInstace {
 	/**
 	 * 汉诺塔问题
