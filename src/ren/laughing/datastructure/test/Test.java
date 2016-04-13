@@ -1,4 +1,4 @@
-package ren.laughing.datastructure;
+package ren.laughing.datastructure.test;
 
 import ren.laughing.datastructure.base.Stack;
 import ren.laughing.datastructure.baseImpl.StackLinked;

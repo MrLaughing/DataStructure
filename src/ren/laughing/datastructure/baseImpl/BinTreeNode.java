@@ -27,6 +27,16 @@ public class BinTreeNode implements Node{
 		this.height = 0;
 		this.data = data;
 	}
+	
+	public BinTreeNode(Object data, BinTreeNode parent, BinTreeNode lChild, BinTreeNode rChild) {
+		super();
+		this.data = data;
+		this.parent = parent;
+		this.lChild = lChild;
+		this.rChild = rChild;
+		updateHeight();
+		updateSize();
+	}
 
 	@Override
 	public Object getData() {
@@ -132,7 +142,7 @@ public class BinTreeNode implements Node{
 			this.updateSize();
 		}
 		return oldLChild;
-	}
+	}	
 	public BinTreeNode setRChild(BinTreeNode rc){
 		BinTreeNode oldRChild = rChild;
 		if(hasRChild()){
