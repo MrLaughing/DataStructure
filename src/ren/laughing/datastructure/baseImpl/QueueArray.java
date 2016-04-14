@@ -23,8 +23,8 @@ public class QueueArray implements Queue{
 		this(CAP);
 	}
 	public QueueArray(int cap) {
-		this.elements = new Object[capacity];
 		this.capacity = cap+1;//这里数组实际大小capacity比队列容量cap大1
+		this.elements = new Object[capacity];
 		this.front = 0;
 		this.rear = 0;
 	}

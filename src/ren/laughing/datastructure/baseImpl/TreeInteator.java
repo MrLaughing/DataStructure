@@ -2,9 +2,11 @@ package ren.laughing.datastructure.baseImpl;
 
 import ren.laughing.datastructure.base.Iterator;
 import ren.laughing.datastructure.base.LinkedList;
+import ren.laughing.datastructure.base.Queue;
 import ren.laughing.datastructure.base.Stack;
 
 /**
+ * 关于二叉树的三种遍历+层次遍历+查找元素
  * ⑴ 遍历左子树，访问根，遍历右子树（LDR）中根（序）遍历
  * ⑵ 遍历左子树，遍历右子树，访问根（LRD）后根（序）遍历
  * ⑶ 访问根，遍历左子树，遍历右子树（DLR）先根（序）遍历
@@ -14,7 +16,7 @@ import ren.laughing.datastructure.base.Stack;
  * @author Laughing_Lz
  * @time 2016年4月13日
  */
-public class TreeInteator {
+public class TreeInteator{
 	/**
 	 * 先序遍历
 	 * @param root 树的根结点
@@ -175,6 +177,66 @@ public class TreeInteator {
 			}
 		}
 	}
+	/**
+	 * 层次遍历
+	 * @param root
+	 * @return
+	 */
+	public Iterator levelOrder(BinTreeNode root){
+		LinkedList list = new DLinkedList();
+		levelOrderTraverse(list, root);
+		return list.elements();
+	}
+	/**
+	 * 层次遍历的非递归算法
+	 * @param list
+	 * @param btn
+	 */
+	public void levelOrderTraverse(LinkedList list,BinTreeNode btn){
+		if(btn == null){
+			return;
+		}
+		Queue q = new QueueArray();//使用队列完成层次遍历
+		q.enqueue(btn);
+		while(!q.isEmpty()){
+			BinTreeNode p = (BinTreeNode) q.dequeue();//取出队首结点 p 并访问
+			list.insertLast(p);
+			if(p.hasLChild()){
+				q.enqueue(p.getLChild());//★先进先出
+			}
+			if(p.hasRChild()){
+				q.enqueue(p.getRChild());
+			}
+		}
+	}
+	/**
+	 * 遍历查找元素,返回树结点
+	 * @param root 树
+	 * @param obj 要查找的元素
+	 * @return
+	 */
+	public BinTreeNode find(BinTreeNode root,Object obj){
+		return searchBTN(root,obj);
+	}
+	/**
+	 * 递归查找元素
+	 * @param btn 
+	 * @param obj
+	 * @return
+	 */
+	private BinTreeNode searchBTN(BinTreeNode btn, Object obj) {
+		if(btn == null){
+			return null;
+		}
+		if(((Integer)btn.getData()).equals((Integer)obj)){//先比较根节点元素
+			return btn;
+		}
+		BinTreeNode p = searchBTN(btn.getLChild(), obj);//否则在左子树查找
+		if(p == null){
+			p = searchBTN(btn.getRChild(), obj);//没找到，在右子树查找
+		}
+		return p;
+	}
 	public static void main(String[] args) {
 		TreeInteator ti = new TreeInteator();
 		BinTreeNode root = creatTree();
@@ -196,7 +258,15 @@ public class TreeInteator {
 			System.out.print(((BinTreeNode)post.currentItem()).getData()+" ");
 			post.next();
 		}
-		
+		System.out.println("\n层次遍历：");
+		Iterator level = ti.levelOrder(root);
+		while(!level.isDone()){
+			System.out.print(((BinTreeNode)level.currentItem()).getData()+" ");
+			level.next();
+		}
+		System.out.println("\n查找元素：");
+		BinTreeNode result = ti.find(root, 3);
+		System.out.println("查找结果：元素"+result.getData()+",位于第"+(root.getHeight()-result.getHeight()+1)+"行");
 	}
 	//生成树
 	public static BinTreeNode creatTree(){
@@ -215,5 +285,4 @@ public class TreeInteator {
 		leaf3.setRChild(leaf7);
 		return leaf1;
 	}
-	
 }
