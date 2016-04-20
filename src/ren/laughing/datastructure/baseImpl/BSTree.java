@@ -11,9 +11,9 @@ import ren.laughing.datastructure.base.Node;
  * @time 2016年4月19日
  */
 public class BSTree extends BinaryTreeLinked implements Comparator<Integer> {
-	private BinTreeNode root;// 树的根结点
-	private BinTreeNode startBN;// ★待平衡出发点
-
+	public BinTreeNode root;// 树的根结点
+	public BinTreeNode startBN;// ★待平衡出发点 public:留给子类使用
+	
 	public BSTree() {
 		super();
 	}
@@ -177,7 +177,7 @@ public class BSTree extends BinaryTreeLinked implements Comparator<Integer> {
 		} else {
 			subT = del.getRChild();
 		}
-		if (del == root) { // 若待删结点为根 ★★
+		if (del == root) { // 若待删结点为根 ★★(若root根结点是只有一个孩子的树，直接断开即可)
 			if (subT != null) {
 				subT.server();// 与原根结点断开
 			}
@@ -193,7 +193,7 @@ public class BSTree extends BinaryTreeLinked implements Comparator<Integer> {
 		}
 		return del.getData();// 返回删除结点的元素(注意第三种情况)
 	}
-
+	
 	/**
 	 * 实现Comparator接口 默认数据元素(getData)为int类型
 	 */
