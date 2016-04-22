@@ -14,7 +14,7 @@ public class Search {
 	 * @param low
 	 *            最小元素下标
 	 * @param high
-	 *            最大元素下标
+	 *            最大元素下标 
 	 * @param key
 	 *            要查找元素
 	 */
