@@ -1,7 +1,5 @@
 package ren.laughing.datastructure.algorithm;
 
-import ren.laughing.datastructure.baseImpl.BinTreeNode;
-
 /**
  * 排序
  * 
@@ -216,7 +214,7 @@ public class Sorter {
 	}
 
 	/**
-	 * 归并排序
+	 * 归并排序,时间复杂度为O(nlogn)
 	 * 
 	 * @param arr
 	 * @param low
